@@ -7,9 +7,9 @@
 ---
 
 # 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)  
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/yourhandle)  
-[![Behance](https://img.shields.io/badge/Behance-0057FF?style=for-the-badge&logo=behance&logoColor=white)](https://behance.net/yourprofile)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ayan-ansari-053849313)  
+
+
 
 ---
 
