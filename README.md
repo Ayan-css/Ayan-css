@@ -1,221 +1,178 @@
-# 👋 Hey, I'm Ayan
+![AyanOS boot sequence](assets/header.svg)
 
-### Full-Stack Builder • Product Developer • Founder-minded Engineer
+I build backends that have to be right about money. Most of what I know came out
+of one project.
 
-I build products by going from **idea → architecture → code → deployment → iteration**.
-
-Rather than collecting technologies, I prefer learning them by building real systems — especially products that solve practical problems.
-
-Currently exploring the intersection of:
-
-**Web Development · Backend Systems · Product Engineering · AI/ML · Automation · Startup Building**
+![System info](assets/about.svg)
 
 ---
 
-## 🧭 What I'm Doing Right Now
+## `PrintOK.app`
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│                     BUILD → BREAK → LEARN                    │
-│                                                              │
-│  Think of an idea                                            │
-│        ↓                                                     │
-│  Build a real product                                        │
-│        ↓                                                     │
-│  Run into problems                                           │
-│        ↓                                                     │
-│  Learn what is actually necessary                            │
-│        ↓                                                     │
-│  Fix it                                                        │
-│        ↓                                                     │
-│  Ship better                                                  │
-└──────────────────────────────────────────────────────────────┘
+[![live](https://img.shields.io/badge/live-print--ok--customer--web.vercel.app-e8a33d?style=flat-square&labelColor=141416)](https://print-ok-customer-web.vercel.app)
+[![source](https://img.shields.io/badge/source-Ayan--css%2FPrintOK-7d7d87?style=flat-square&labelColor=141416)](https://github.com/Ayan-css/PrintOK)
+![status](https://img.shields.io/badge/status-pre--launch-5a5a66?style=flat-square&labelColor=141416)
+
+**Hardware-free print-on-demand.** A customer walks into a print shop, scans a QR
+code, uploads their file and pays from their own phone. A background agent on the
+shop's existing Windows PC picks the job up and prints it. No new hardware, no
+counter queue, no USB stick.
+
+```
+QR scan → upload (signed S3 URL) → quote (rate card frozen) → pay → queued → agent prints
 ```
 
-I'm currently focused on becoming stronger at **full-stack product engineering** while experimenting with **AI/ML, backend architecture, automation, and developer tooling**.
+![PrintOK architecture](assets/architecture.svg)
 
----
+**Payment state and print state never touch.** A paid job and a printed job are
+different facts. Collapse them into one status field and a webhook replay or a
+printer jam charges someone twice. Two more decisions in the same spirit:
 
-## 🛠️ Tech I Work With
+- **Prices are integer paise.** `₹12.40` is stored as `1240`. A per-page rate times
+  a page count in floating point drifts, and a drifting total is an argument with
+  a customer standing at the counter.
+- **The rate card is frozen at quote time.** Shops change rates. Snapshot the card
+  onto the job when it's quoted, and the price you were shown is the price you pay.
 
-### Languages
+<details>
+<summary><b>What exists, rather than what's claimed</b></summary>
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square\&logo=javascript\&logoColor=000)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square\&logo=typescript\&logoColor=fff)
-![C%23](https://img.shields.io/badge/C%23-512BD4?style=flat-square\&logo=csharp\&logoColor=fff)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square\&logo=dart\&logoColor=fff)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square\&logo=html5\&logoColor=fff)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square\&logo=css3\&logoColor=fff)
+<br>
 
-### Frontend
-
-![React](https://img.shields.io/badge/React-20232A?style=flat-square\&logo=react\&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square\&logo=next.js\&logoColor=fff)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square\&logo=tailwindcss\&logoColor=fff)
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square\&logo=flutter\&logoColor=fff)
-
-### Backend & Data
-
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square\&logo=node.js\&logoColor=fff)
-![Express](https://img.shields.io/badge/Express-000?style=flat-square\&logo=express\&logoColor=fff)
-![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square\&logo=prisma\&logoColor=fff)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square\&logo=postgresql\&logoColor=fff)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square\&logo=supabase\&logoColor=fff)
-
-### Infrastructure & Tools
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square\&logo=docker\&logoColor=fff)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square\&logo=git\&logoColor=fff)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square\&logo=github\&logoColor=fff)
-![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square\&logo=vercel\&logoColor=fff)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square\&logo=render\&logoColor=000)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square\&logo=figma\&logoColor=fff)
-
----
-
-## 🚀 Things I'm Building
-
-### 🖨️ PrintOK
-
-A hardware-free printing platform designed for stationery shops.
-
-Customers upload and pay from their phones while a shop-side agent communicates with the backend and handles printing through the shop's existing computer.
-
-**What makes it interesting:** it's not just a frontend project.
-
-It involves:
-
-`Frontend → API → Payments → Database → Storage → WebSockets → Windows Agent → Printer`
-
-[🔗 View PrintOK](https://github.com/Ayan-css/PrintOK)
-
----
-
-### 🧠 FounderOS
-
-An operating system-style productivity platform for founders and independent builders.
-
-Combines areas such as:
-
-`CRM · Finance · Outreach · Focus · Journaling · Knowledge`
-
-Built around a cross-platform application architecture with Flutter and Supabase.
-
-[🔗 View FounderOS](https://github.com/Ayan-css/Founder_osMain)
-
----
-
-## 🧩 How I Like to Build
-
-```text
-        IDEA
-         │
-         ▼
-     PROBLEM
-         │
-         ▼
-     PROTOTYPE
-         │
-         ▼
-      MVP
-         │
-         ▼
-   REAL USERS
-         │
-         ▼
-     FEEDBACK
-         │
-         ▼
-      ITERATE
+```
+43 automated tests    incl. a Postgres integration suite, against a real DB
+REST API              Express · TypeScript · Prisma/PostgreSQL
+                      job lifecycle, agent pairing, credential revocation,
+                      admin console
+C# .NET 8 agent       self-contained, ships to GitHub Releases via Actions
+CI/CD                 GitHub Actions on push to main
+deployment            Render (API) · Vercel (web) · Supabase (db/storage)
 ```
 
-I care less about building demos and more about understanding what happens when software has to **actually work**.
+Pre-launch. Built, deployed and validated end to end — not yet running in a real
+shop, so there are no customers to claim.
 
-That means thinking about things like:
-
-* authentication
-* data integrity
-* state management
-* payments
-* security
-* deployment
-* failure handling
-* automation
-* system architecture
-* maintainability
+</details>
 
 ---
 
-## 🎮 Developer Console
+## `~/stack`
 
-```text
-╔════════════════════════════════════════════════════╗
-║                 AYAN.EXE                           ║
-╠════════════════════════════════════════════════════╣
-║ Role        : Builder                              ║
-║ Mode        : Ship                                  ║
-║ Current XP  : ███████████████░░░  78%              ║
-║ Bugs Fixed  : ∞                                     ║
-║ Ideas       : dangerously high                      ║
-║ Coffee      : undefined                             ║
-╚════════════════════════════════════════════════════╝
+<sub>Grouped the way they are on my resume. No proficiency bars — a number would
+only be a guess wearing a percentage sign.</sub>
+
+**Languages**
+![JavaScript](https://img.shields.io/badge/JavaScript-f2c14e?style=flat-square&logo=javascript&logoColor=141416)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-f2c14e?style=flat-square&logo=python&logoColor=141416)
+![SQL](https://img.shields.io/badge/SQL-4a90b8?style=flat-square&logo=postgresql&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-7d7d87?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-7d7d87?style=flat-square&logo=css3&logoColor=white)
+
+**Frontend**
+![React](https://img.shields.io/badge/React-61dafb?style=flat-square&logo=react&logoColor=141416)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-7d7d87?style=flat-square&logo=tailwindcss&logoColor=white)
+![vanilla JS](https://img.shields.io/badge/responsive_%2F_vanilla_JS_UI-f2c14e?style=flat-square)
+
+**Backend**
+![Node.js](https://img.shields.io/badge/Node.js-5fa04e?style=flat-square&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5fa04e?style=flat-square&logo=express&logoColor=white)
+![REST](https://img.shields.io/badge/REST_API_design-7d7d87?style=flat-square)
+![WebSockets](https://img.shields.io/badge/WebSockets-7d7d87?style=flat-square)
+
+**Databases**
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4a90b8?style=flat-square&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-5fa04e?style=flat-square&logo=supabase&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-5a67d8?style=flat-square&logo=prisma&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-5fa04e?style=flat-square&logo=mongodb&logoColor=white)
+
+**Cloud & DevOps**
+![Docker](https://img.shields.io/badge/Docker-2496ed?style=flat-square&logo=docker&logoColor=white)
+![AWS S3](https://img.shields.io/badge/AWS_S3-7d7d87?style=flat-square&logo=amazons3&logoColor=white)
+![Render](https://img.shields.io/badge/Render-7d7d87?style=flat-square&logo=render&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-7d7d87?style=flat-square&logo=vercel&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions_%28CI%2FCD%29-7d7d87?style=flat-square&logo=githubactions&logoColor=white)
+
+**Tools**
+![Git](https://img.shields.io/badge/Git%2FGitHub-7d7d87?style=flat-square&logo=github&logoColor=white)
+![Razorpay](https://img.shields.io/badge/Razorpay_integration-3395ff?style=flat-square&logo=razorpay&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-9b4f96?style=flat-square&logo=jest&logoColor=white)
+![C#](https://img.shields.io/badge/C%23_.NET_8-9b4f96?style=flat-square&logo=dotnet&logoColor=white)
+
+---
+
+## `~/projects/Porejects`
+
+![Four projects left mid-progress](assets/graveyard.svg)
+
+Six standalone JavaScript/HTML/CSS apps built to practise DOM manipulation, state
+handling and API integration — all in one repo. Four of them I started and
+stopped, and they're still on the shelf on purpose: a portfolio that only shows
+finished things is telling you half of what happened.
+
+<details>
+<summary><b>The full folder</b></summary>
+
+<br>
+
+```
+Porejects/
+├── expense-tracker        †  left mid-progress
+├── ecommerce-cart         †  left mid-progress
+├── todo-app
+├── weather-app
+├── quiz-app               †  left mid-progress
+└── project-management     †  left mid-progress
 ```
 
-> `git commit -m "figured it out"`
+None of these is PrintOK-scale, and pretending otherwise would flatten the one
+project that is.
+
+**[github.com/Ayan-css/Porejects](https://github.com/Ayan-css/Porejects)**
+
+</details>
 
 ---
 
-## 📊 GitHub Activity
+## `timeline.log`
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Ayan-css&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" height="170"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ayan-css&theme=tokyonight&hide_border=true" height="170"/>
-</p>
+```
+[edu]   Apr 2025 — present   BSc Information Technology
+                             Anjuman-I-Islam Kalsekar Technical Campus, New Panvel
+                             3rd semester · SGPA 9.5 / 9.65
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ayan-css&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
-</p>
+[lead]                       President — Rise Club
 
----
+[teach]                      Co-Instructor & Host — Git & GitHub Hands-On Workshop
+                             led a live session on version control fundamentals
 
-## 🧪 Currently Exploring
+[lead]                       Media Team — Igniters Club, AIKTC (via Unstop)
 
-```text
-[ ███████████████░░░ ] Full-Stack Engineering
-
-[ ████████████░░░░░░ ] Backend Architecture
-
-[ ██████████░░░░░░░░ ] AI / ML
-
-[ █████████░░░░░░░░░ ] DevOps & Infrastructure
-
-[ ████████░░░░░░░░░░ ] System Design
+[cert]                       Google Developer Student Jam — Google Developer Groups
 ```
 
-The goal isn't to know everything.
-
-The goal is to become the kind of engineer who can **figure things out and ship**.
-
 ---
 
-## 🌐 Find Me
+## `~/contact`
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://linkedin.com/in/ayan-ansari-053849313)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:ayan48311@gmail.com)
+```
+$ curl github.com/Ayan-css
+$ curl linkedin.com/in/ayan-ansari-053849313
+$ mail ayan48311@gmail.com
+```
 
----
+[![GitHub](https://img.shields.io/badge/GitHub-Ayan--css-141416?style=flat-square&logo=github&logoColor=e8a33d)](https://github.com/Ayan-css)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ayan--ansari-141416?style=flat-square&logo=linkedin&logoColor=e8a33d)](https://www.linkedin.com/in/ayan-ansari-053849313/)
+[![Email](https://img.shields.io/badge/Email-ayan48311%40gmail.com-141416?style=flat-square&logo=gmail&logoColor=e8a33d)](mailto:ayan48311@gmail.com)
 
-## 💭 Current Philosophy
+<!--
+  Once AyanOS is deployed, add the portfolio link here:
+  [![portfolio](https://img.shields.io/badge/portfolio-AyanOS-e8a33d?style=flat-square&labelColor=141416)](https://YOUR-URL-HERE)
+  Left commented out on purpose — a dead link on a profile is worse than no link.
+-->
 
-> **Don't learn everything first.
-> Build something that forces you to learn what matters.**
-
----
-
-<p align="center">
-  <b>Build → Break → Learn → Repeat</b>
-</p>
-
-<p align="center">
-  <sub>Always building. Always figuring things out.</sub>
-</p>
+```
+$ uptime
+up since Apr 2025 · 1 flagship, 6 practice apps, 0 fake metrics
+load average: caffeinated
+```
